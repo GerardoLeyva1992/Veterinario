@@ -5,8 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">1992</property>
+        <property name="hibernate.connection.username">%%%</property>
+        <property name="hibernate.connection.password">%%%</property>
         <!-- Cambiar aqui el link de ngrock -->
         <property name="hibernate.connection.url">jdbc:mysql://0.tcp.ngrok.io:11857/proyectopoo</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
