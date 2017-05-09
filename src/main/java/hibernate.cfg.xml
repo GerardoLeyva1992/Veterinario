@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">1992</property>
+        <!-- Cambiar aqui el link de ngrock -->
+        <property name="hibernate.connection.url">jdbc:mysql://0.tcp.ngrok.io:11857/proyectopoo</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property> 
+        <property name="connection.pool_size">1</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="javax.persistence.validation.mode">none</property>
+        
+          <mapping class="uacm.modelo.Empleado"></mapping> 
+            <mapping class="uacm.modelo.Especie"></mapping> 
+          <mapping class="uacm.modelo.Propetario"></mapping> 
+          <mapping class="uacm.modelo.Registro"></mapping> 
+    </session-factory>
+</hibernate-configuration>
