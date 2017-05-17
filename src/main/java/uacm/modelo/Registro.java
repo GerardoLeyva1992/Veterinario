@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 @Table(name="Registro")
@@ -15,16 +17,15 @@ import javax.validation.constraints.NotNull;
 public class Registro implements Serializable {
 	@Id
 	@javax.persistence.TableGenerator(
-		    name="REG_GEN",
+		    name="ESP_GEN",
 		    table="GENERATOR_TABLE",
 		    pkColumnName = "key",
 		    valueColumnName = "hi",
-		    pkColumnValue="REG",
+		    pkColumnValue="ESP",
 		    		initialValue = 1,
 		    	      allocationSize = 10000
 		    
 		)
-	@NotNull
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long consecutivo;
 	@NotNull
@@ -39,7 +40,6 @@ public class Registro implements Serializable {
 	@NotNull
 	private String Status;
 	@Id
-	@NotNull
 	private Long numeroEmpleado;
 	
 	public String getStatus() {

@@ -14,17 +14,7 @@ import javax.persistence.Table;
 @Table(name="empleado")
 public class Empleado extends Persona  implements Serializable{
 	@Id
-	@javax.persistence.TableGenerator(
-		    name="EMP_GEN",
-		    table="GENERATOR_TABLE",
-		    pkColumnName = "key",
-		    valueColumnName = "hi",
-		    pkColumnValue="EMP",
-		    		initialValue = 1,
-		    	      allocationSize = 10000
-		    
-		)
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long numeroEmpleado;
 	private Date fechaContrato;
 	private Date fechaDespido;

@@ -1,6 +1,7 @@
 package uacm.vista;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -58,7 +59,10 @@ public class vistaMascota extends JFrame {
 	 * Create the frame.
 	 */
 	public vistaMascota() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/archivo-de-gato-icono-4547-128.png")));
+
 		setTitle("Alta Mascota");
+		setResizable(false);
 		radar = new Radar();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Toolkit;
 
 public class Principal extends JFrame {
 
@@ -47,6 +48,9 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/archivo-de-gato-icono-4547-128.png")));
+		setTitle("Menu Principal");
+		setResizable(false);
 		radar = new Radar();
 		setTitle("Sistema de Veterinarios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

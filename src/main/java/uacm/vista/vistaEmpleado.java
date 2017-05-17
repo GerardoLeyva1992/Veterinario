@@ -15,6 +15,7 @@ import org.hibernate.Transaction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -67,7 +68,9 @@ public class vistaEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public vistaEmpleado() {
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/archivo-de-gato-icono-4547-128.png")));
+
+		setResizable(false);
 		radar = new Radar();
 
 		setTitle("Alta Empleado");

@@ -1,6 +1,7 @@
 package uacm.vista;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -64,10 +65,12 @@ public class vistaPaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public vistaPaciente() {
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/archivo-de-gato-icono-4547-128.png")));
+
 		radar = new Radar();
 
 		setTitle("Alta Cliente");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 466, 525);
 		contentPane = new JPanel();
@@ -172,7 +175,6 @@ public class vistaPaciente extends JFrame {
 				e.setCorreo(textCorreo.getText());
 				e.setTelefono(textTelefono.getText());
 				e.setNumeroEmpleado(Long.parseLong(textidVeterinario.getText()));
-				//262144
 				session.save(e);
 				
 				transaction.commit();

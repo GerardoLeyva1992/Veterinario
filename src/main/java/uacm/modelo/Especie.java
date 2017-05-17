@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Table(name="especie")
 @Entity 
@@ -24,7 +24,8 @@ public class Especie implements Serializable {
 		)
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idEspecie;
-	@Id
+	
+	
 	private Long idPropetario;
 
 	private String nombre;

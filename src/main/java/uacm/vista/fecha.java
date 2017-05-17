@@ -1,6 +1,7 @@
 package uacm.vista;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
@@ -56,6 +57,10 @@ public class fecha extends JFrame {
 	 * Create the frame.
 	 */
 	public fecha() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/archivo-de-gato-icono-4547-128.png")));
+
+		setTitle("Busqueda de fechas de alta o ingreso");
+		setResizable(false);
 		radar=new Radar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1244, 621);
@@ -102,12 +107,12 @@ public class fecha extends JFrame {
 				transaction = session.beginTransaction();
 				Iterator query =null;
 				if(comboBox.getActionCommand().equals("Fecha de alta"))
-					query =session.createQuery("select r.idEspecie,r.Status,r.diagnostico,r.fechaAlta,r.fechaIngreso,r.numeroEmpleado,r.sintomas,e.nombre from Registro r,Especie e where r.idEspecie=e.idEspecie and  r.fechaAlta="+"'"+new java.sql.Date( dateChooser.getDate().getTime())+"'").list().iterator();
+					query =session.createQuery("select r.idEspecie,r.Status,r.diagnostico,r.fechaAlta,r.fechaIngreso,r.numeroEmpleado,r.sintomas,e.nombre,p.nombre from Registro r,Especie e,Propetario p where r.idEspecie=e.idEspecie and  r.fechaAlta="+"'"+new java.sql.Date( dateChooser.getDate().getTime())+"'").list().iterator();
 				else
-					query =session.createQuery("select r.idEspecie,r.Status,r.diagnostico,r.fechaAlta,r.fechaIngreso,r.numeroEmpleado,r.sintomas,e.nombre from Registro r,Especie e where r.idEspecie=e.idEspecie and  r.fechaIngreso="+"'"+new java.sql.Date( dateChooser.getDate().getTime())+"'").list().iterator();
+					query =session.createQuery("select r.idEspecie,r.Status,r.diagnostico,r.fechaAlta,r.fechaIngreso,r.numeroEmpleado,r.sintomas,e.nombre,p.nombre from Registro r,Especie e,Propetario p where r.idEspecie=e.idEspecie and  r.fechaIngreso="+"'"+new java.sql.Date( dateChooser.getDate().getTime())+"'").list().iterator();
 
 				Object[][] datosFila=new Object[30][10];
-				String nombreColumnas[] = {"Matricula Mascota","Status","Diagnostico","Fecha de Alta","Fecha de Ingreso","Numero de empleado que atendio","Sintomas","Nombre de Mascota"};
+				String nombreColumnas[] = {"Matricula Mascota","Status","Diagnostico","Fecha de Alta","Fecha de Ingreso","Numero de empleado que atendio","Sintomas","Nombre de Mascota","Nombre Propetario"};
 				int i=0;
 		        while(query.hasNext()){
 		        	
@@ -120,6 +125,7 @@ public class fecha extends JFrame {
 					datosFila[i][5]=tuple[5];
 					datosFila[i][6]=tuple[6];
 					datosFila[i][7]=tuple[7];
+					datosFila[i][8]=tuple[8];
 		        	i=i+1;
 					  }
 				DefaultTableModel modelo1;
